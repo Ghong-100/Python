@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>PyQT</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>search.png</normaloff>search.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
@@ -30,7 +34,7 @@
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="QPlainTextEdit" name="plainTextEdit"/>
+       <widget class="QTextEdit" name="textEdit"/>
       </item>
      </layout>
     </item>
@@ -86,10 +90,16 @@
    <property name="text">
     <string>new</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="action_save">
    <property name="text">
     <string>save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="action_exit">
@@ -100,6 +110,9 @@
   <action name="action_open">
    <property name="text">
     <string>open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
  </widget>
