@@ -56,6 +56,7 @@
     <addaction name="action_new"/>
     <addaction name="action_open"/>
     <addaction name="action_save"/>
+    <addaction name="action_saveas"/>
     <addaction name="separator"/>
     <addaction name="action_exit"/>
    </widget>
@@ -113,6 +114,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_saveas">
+   <property name="text">
+    <string>saveas</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
    </property>
   </action>
  </widget>
