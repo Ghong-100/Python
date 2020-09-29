@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="//cwcode.asiae.co.kr/asiae_v2/css/v1_realtime.css?20160602" rel="stylesheet" type="text/css"/>
+<title>Untitled Document</title>
+<script language="javascript">
+<!--
+var time = '180'; 
+var tid = '';
+document.domain = 'asiae.co.kr';
+
+function startReload()
+{
+	if( time > 0 )
+	{
+		tid = setInterval( 'reloadman()', time*1000 );
+	}
+}
+
+function setReload(stime)
+{
+	var frm = document.myForm;
+	frm.rtime.value = stime;
+
+	clearTimeout(tid);
+	tid = setInterval( 'reloadman()', stime*1000 );
+}
+
+function reloadman()
+{
+	var frm = document.myForm;
+	frm.pg.value = 1;
+	frm.action = '/realtime/sokbo_left.htm';
+	frm.submit();
+}
+
+function change_list( num )
+{
+	var frm = document.myForm;
+	frm.ltype.value = num;
+	frm.submit();
+}
+
+
+function change_tab( num )
+{
+	var frm = document.myForm;
+	frm.tab.value = num;
+	frm.pg.value = 1;
+	frm.submit();
+}
+
+function go( num )
+{
+	var frm = document.myForm;
+	frm.pg.value = num;
+	frm.submit();
+}
+//-->
+</script>
+</head>
+<body onload="startReload()">
+<div id="left">
+<div class="snb">
+<form action="" method="post" name="myForm" onsubmit="return false;">
+<input name="pg" type="hidden" value="1"/>
+<input name="tab" type="hidden" value="0"/>
+<input name="rtime" type="hidden" value="180"/>
+<input name="ltype" type="hidden" value="1"/>
+<ul class="btn_time">
+<li class="f"><a href="javaScript:reloadman()"><img alt="새로고침" src="https://cwstatic.asiae.co.kr/asiae_2009/realtime/btn_re.gif"/></a></li>
+<li><input name="settime" onclick="setReload(0)" type="radio"><label>정지</label></input></li>
+<li><input name="settime" onclick="setReload(30)" type="radio"><label>30초</label></input></li>
+<li><input name="settime" onclick="setReload(60)" type="radio"><label>1분</label></input></li>
+<li><input checked="" name="settime" onclick="setReload(180)" type="radio"><label>3분</label></input></li>
+</ul>
+<ul class="tab_1">
+<li class="selected"><a href="javaScript:change_tab( 0 )">전체</a></li>
+<li><a href="javaScript:change_tab( 1 )">일반</a></li>
+<li><a href="javaScript:change_tab( 2 )">연예</a></li>
+<li><a href="javaScript:change_tab( 3 )">증권</a></li>
+</ul>
+<fieldset class="st">
+<input checked="" name="list_type" onclick="change_list(1)" type="radio"/><label><strong>제목</strong></label>
+<input class="f" name="list_type" onclick="change_list(2)" type="radio"/><label>제목+이미지</label>
+</fieldset>
+<div class="ct txtform">
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915420628215" target="mainFrame" title="함평군 학교·월야면 ‘하수도정비 중점관리지역’ 지정">함평군 학교·월야면 ‘하수도정비 중점관리지역’ 지</a><span class="date">15:39</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915390816668" target="mainFrame" title='"국내 코로나 완치자 91% 후유증…피로감·집중력 저하 순"(상보)'>"국내 코로나 완치자 91% 후유증…피로감·집중력 저</a><span class="date">15:37</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915364913742" target="mainFrame" title="기아차, 국내 전 공장 생산 재개">기아차, 국내 전 공장 생산 재개</a><span class="date">15:34</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915364110250" target="mainFrame" title="코스닥, 12.24p 오른 848.15 마감(1.46%↑)">코스닥, 12.24p 오른 848.15 마감(1.46%↑)</a><span class="date">15:34</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915361807849" target="mainFrame" title="코스피, 19.81p 오른 2327.89 마감(0.86%↑)">코스피, 19.81p 오른 2327.89 마감(0.86%↑)</a><span class="date">15:34</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915350704866" target="mainFrame" title="미래산업, 쌍방울과 22억 규모 마스크 제조장비 공급 계약">미래산업, 쌍방울과 22억 규모 마스크 제조장비 공급 </a><span class="date">15:32</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915342898094" target="mainFrame" title="29일 원·달러 환율 4.1원 내린 1169.5원 마감">29일 원·달러 환율 4.1원 내린 1169.5원 마감</a><span class="date">15:32</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915334995320" target="mainFrame" title="두산솔루스, 계열사에 137억 규모 채무보증 결정">두산솔루스, 계열사에 137억 규모 채무보증 결정</a><span class="date">15:31</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915321484756" target="mainFrame" title="서전기전, 국가정보자원관리원과 89억 규모 계약 체결">서전기전, 국가정보자원관리원과 89억 규모 계약 체결</a><span class="date">15:30</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915320981774" target="mainFrame" title="전남도, 6년 연속 ‘일자리 정책’ 우수 자치단체 선정">전남도, 6년 연속 ‘일자리 정책’ 우수 자치단체 선</a><span class="date">15:29</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915305178585" target="mainFrame" title="코리아에프티, 폴란드 현지법인에 68억 규모 채무보증 결정">코리아에프티, 폴란드 현지법인에 68억 규모 채무보증</a><span class="date">15:28</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915285675936" target="mainFrame" title="코스나인, 바이오라인밸류인베스트먼트로 최대주주 변경">코스나인, 바이오라인밸류인베스트먼트로 최대주주 변</a><span class="date">15:26</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915271872033" target="mainFrame" title="네패스, 3억 규모 자사주 취득 후 소각 결정">네패스, 3억 규모 자사주 취득 후 소각 결정</a><span class="date">15:25</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915254167834" target="mainFrame" title="유진테크, SK하이닉스와 190억 규모 장비 공급 계약">유진테크, SK하이닉스와 190억 규모 장비 공급 계약</a><span class="date">15:23</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915252064065" target="mainFrame" title="이삼용 전남대병원장 ‘고맙습니다, 필수노동자’ 캠페인 동참">이삼용 전남대병원장 ‘고맙습니다, 필수노동자’ 캠</a><span class="date">15:23</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915243259792" target="mainFrame" title="티앤알바이오팹, 260억 규모 유상증자 결정">티앤알바이오팹, 260억 규모 유상증자 결정</a><span class="date">15:22</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915213750361" target="mainFrame" title="동신건설, 인천김포 고속도로 졸음쉼터 공사 수주">동신건설, 인천김포 고속도로 졸음쉼터 공사 수주</a><span class="date">15:19</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915213448143" target="mainFrame" title="동신대, 고3 대상 ‘예비신입생 진로탐색DAY’ 운영">동신대, 고3 대상 ‘예비신입생 진로탐색DAY’ 운영</a><span class="date">15:19</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915183533645" target="mainFrame" title="[포토]취재진 질문 받는 이래진씨">[포토]취재진 질문 받는 이래진씨</a><span class="date">15:16</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915172428877" target="mainFrame" title="[포토]기자회견장 들어서는 북한 피격 사망 공무원 A씨 형 이래진씨">[포토]기자회견장 들어서는 북한 피격 사망 공무원 A</a><span class="date">15:15</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915162620883" target="mainFrame" title="건보공단 부산경남본부, “추석이 사회공헌활동 대목이죠”">건보공단 부산경남본부, “추석이 사회공헌활동 대목</a><span class="date">15:14</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915152517080" target="mainFrame" title="소리바다 “중부코퍼, 허위사실로 주주 혼란시켜”">소리바다 “중부코퍼, 허위사실로 주주 혼란시켜”</a><span class="date">15:13</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915121912316" target="mainFrame" title="[포토] 최근 현안 관련 발언하는 김종인">[포토] 최근 현안 관련 발언하는 김종인</a><span class="date">15:10</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915121609672" target="mainFrame" title="[포토] 김종인, 연휴 앞두고 현안 이슈 제기">[포토] 김종인, 연휴 앞두고 현안 이슈 제기</a><span class="date">15:10</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915121405764" target="mainFrame" title="[포토] 현안관련 브리핑하는 김종인">[포토] 현안관련 브리핑하는 김종인</a><span class="date">15:10</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915121103693" target="mainFrame" title="[포토] 공무원 피격 관련 발언하는 김종인">[포토] 공무원 피격 관련 발언하는 김종인</a><span class="date">15:09</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915113100319" target="mainFrame" title='[속보] "코로나 백신 일부 국가 독점 우려"…국민 20% 백신 확보 진행'>[속보] "코로나 백신 일부 국가 독점 우려"…국민 20%</a><span class="date">15:09</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915091895787" target="mainFrame" title="[포토]기자회견장 들어서는 이래진씨">[포토]기자회견장 들어서는 이래진씨</a><span class="date">15:07</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915085892630" target="mainFrame" title="유승민 “文대통령, 공감제로·유체이탈…김정은 찬양에 목매”">유승민 “文대통령, 공감제로·유체이탈…김정은 찬양</a><span class="date">15:06</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915084286230" target="mainFrame" title="[포토]북한 치격 사망 공무원 A씨 형 기자회견 열어">[포토]북한 치격 사망 공무원 A씨 형 기자회견 열어</a><span class="date">15:06</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915081283671" target="mainFrame" title="[포토]북한 피격 사망 공무원 A씨 형 외신기자 상대로 기자회견 ">[포토]북한 피격 사망 공무원 A씨 형 외신기자 상대로</a><span class="date">15:06</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915075080802" target="mainFrame" title="[포토]북한 피격 사망 공무원 A씨 형 이래진씨 기자회견">[포토]북한 피격 사망 공무원 A씨 형 이래진씨 기자회</a><span class="date">15:05</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915070577298" target="mainFrame" title="[포토]북한 피격 사망 공무원 A씨 형 기자회견">[포토]북한 피격 사망 공무원 A씨 형 기자회견</a><span class="date">15:04</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915065474686" target="mainFrame" title="LG유플러스, 추석 맞이 U+tv VOD 프로모션">LG유플러스, 추석 맞이 U+tv VOD 프로모션</a><span class="date">15:04</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915040061755" target="mainFrame" title='[속보] "코로나 완치자 후유증…피로감·집중력 저하·후미각 손실" '>[속보] "코로나 완치자 후유증…피로감·집중력 저하</a><span class="date">15:01</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915032458698" target="mainFrame" title="화순군, 전국 지자체 일자리 대상 ‘특별상’ 수상">화순군, 전국 지자체 일자리 대상 ‘특별상’ 수상</a><span class="date">15:01</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092912120300847" target="mainFrame" title='연말 인사 앞당기는 대기업들…"대내외 위기 선제 대응"(종합)'>연말 인사 앞당기는 대기업들…"대내외 위기 선제 대</a><span class="date">15:00</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915002151720" target="mainFrame" title="케어랩스 굿닥, 추석 연휴 의료 공백 최소화… “코로나19 선별진료소 정보도 제공”">케어랩스 굿닥, 추석 연휴 의료 공백 최소화… “코로</a><span class="date">14:58</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092915000747689" target="mainFrame" title="[포토]박기영 통상차관보-英 국제통상부 통상담당 장관 면담">[포토]박기영 통상차관보-英 국제통상부 통상담당 장</a><span class="date">14:58</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914594844184" target="mainFrame" title='[속보] "국내 완치자 965명 중 879명(91.1%) 후유증…최다는 피로감" '>[속보] "국내 완치자 965명 중 879명(91.1%) 후유증…</a><span class="date">14:57</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914593541763" target="mainFrame" title="산업은행, '2020 추석맞이 사랑 나누기' 행사 실시">산업은행, '2020 추석맞이 사랑 나누기' 행사 실시</a><span class="date">14:57</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914583737324" target="mainFrame" title="광주 동구 ‘동구형 상생협력상가 지원사업’ 추진">광주 동구 ‘동구형 상생협력상가 지원사업’ 추진</a><span class="date">14:56</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914582835979" target="mainFrame" title="'폐업 재도전 장려금'…3774명에 18억8700만원">'폐업 재도전 장려금'…3774명에 18억8700만원</a><span class="date">14:56</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914465907844" target="mainFrame" title="이개호 의원 “전남 집중호우 피해지역 지원 2503억 원 국비 확보”">이개호 의원 “전남 집중호우 피해지역 지원 2503억 </a><span class="date">14:44</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914412698464" target="mainFrame" title="한영 외교장관 5차 대화, 한반도 정세·코로나19 대응 협력 논의">한영 외교장관 5차 대화, 한반도 정세·코로나19 대응</a><span class="date">14:39</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914382995967" target="mainFrame" title='"미취업 청년 4만명에 50만원 지급 완료…다음달 16만명 접수" '>"미취업 청년 4만명에 50만원 지급 완료…다음달 16만</a><span class="date">14:36</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914355488852" target="mainFrame" title="법무부, 불법집회 대응… 코로나19 구상권 행사 '협의체' 구성">법무부, 불법집회 대응… 코로나19 구상권 행사 '협의</a><span class="date">14:33</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914355486822" target="mainFrame" title="광주서 7일만에 코로나 지역감염 1명 확진…감염경로 조사 중">광주서 7일만에 코로나 지역감염 1명 확진…감염경로 </a><span class="date">14:33</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914350783712" target="mainFrame" title="공정위, 빙그레의 해태아이스크림 인수 승인">공정위, 빙그레의 해태아이스크림 인수 승인</a><span class="date">14:32</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914333779644" target="mainFrame" title="빅텍, 검색 상위 랭킹... 주가 0.0%">빅텍, 검색 상위 랭킹... 주가 0.0%</a><span class="date">14:31</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914332976984" target="mainFrame" title="두산인프라코어, 투자자 검색 급증... 주가 8800원(-3.61%)">두산인프라코어, 투자자 검색 급증... 주가 8800원(-3</a><span class="date">14:31</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914332173284" target="mainFrame" title="우리들휴브레인, 검색 상위 랭킹... 주가 1.14%">우리들휴브레인, 검색 상위 랭킹... 주가 1.14%</a><span class="date">14:31</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914331370065" target="mainFrame" title="씨젠, 최근 5일 개인 2만 2468주 순매수... 주가 26만 원(+1.56%)">씨젠, 최근 5일 개인 2만 2468주 순매수... 주가 26만</a><span class="date">14:31</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914330567673" target="mainFrame" title="신풍제약, 주가 12만 5500원.. 전일대비 -5.99%">신풍제약, 주가 12만 5500원.. 전일대비 -5.99%</a><span class="date">14:30</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914325963904" target="mainFrame" title="바이오톡스텍, 외국인 3000주 순매수… 주가 -2.97%">바이오톡스텍, 외국인 3000주 순매수… 주가 -2.97%</a><span class="date">14:30</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914325057870" target="mainFrame" title="식약처 &quot;ADHD 치료제 '공부 잘하는 약'으로 불법 사용 의료기관 적발&quot;">식약처 "ADHD 치료제 '공부 잘하는 약'으로 불법 사용</a><span class="date">14:30</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914324354675" target="mainFrame" title="현대차, 최근 5일 개인 111만 8567주 순매수... 주가 17만 8500원(+1.71%)">현대차, 최근 5일 개인 111만 8567주 순매수... 주가 </a><span class="date">14:30</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914323451440" target="mainFrame" title="엑세스바이오, 주가 2만 3100원.. 전일대비 -0.43%">엑세스바이오, 주가 2만 3100원.. 전일대비 -0.43%</a><span class="date">14:30</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914322648508" target="mainFrame" title="포스코 ICT, 이시간 주가 -3.38%.... 최근 5일 개인 55만 240주 순매도">포스코 ICT, 이시간 주가 -3.38%.... 최근 5일 개인 5</a><span class="date">14:30</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914312043700" target="mainFrame" title="안철수 “특권·반칙과 싸워 승리하고…국민속으로 달려갈 것”">안철수 “특권·반칙과 싸워 승리하고…국민속으로 달</a><span class="date">14:29</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914302840031" target="mainFrame" title="한전, 추석맞이 노사합동 사랑나눔 후원">한전, 추석맞이 노사합동 사랑나눔 후원</a><span class="date">14:28</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914260631286" target="mainFrame" title="강경화 장관, 로페스 페루 외교장관과 통화…유명희 본부장 지지요청">강경화 장관, 로페스 페루 외교장관과 통화…유명희 </a><span class="date">14:23</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914252825120" target="mainFrame" title='"엄마 폰으로 결제 한번만"…문자사기 주의'>"엄마 폰으로 결제 한번만"…문자사기 주의</a><span class="date">14:23</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914225710933" target="mainFrame" title="거리두기 2단계로 예식 미루면 위약금 면제…취소시 40% 감면">거리두기 2단계로 예식 미루면 위약금 면제…취소시 4</a><span class="date">14:20</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914225408222" target="mainFrame" title='"신청 뒤 다음날 새벽 새희망자금"…독립문영천시장'>"신청 뒤 다음날 새벽 새희망자금"…독립문영천시장</a><span class="date">14:20</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914202399691" target="mainFrame" title="경남도?교육청, ‘아이 키우기 좋은 경남 만들기’ 협력 강화">경남도?교육청, ‘아이 키우기 좋은 경남 만들기’ 협</a><span class="date">14:18</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914202601342" target="mainFrame" title="경북도, 중소기업혁신 벤처펀드 1000억 시대 연다">경북도, 중소기업혁신 벤처펀드 1000억 시대 연다</a><span class="date">14:18</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914180791354" target="mainFrame" title="TV조선, 제재·행정지도 최다…1주일에 한 번꼴로">TV조선, 제재·행정지도 최다…1주일에 한 번꼴로</a><span class="date">14:15</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092910183721566" target="mainFrame" title="[르포]추석 대목·세일에 유통家, 모처럼 '훈풍'…속내는 '복잡'(종합)">[르포]추석 대목·세일에 유통家, 모처럼 '훈풍'…속</a><span class="date">14:10</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914063065513" target="mainFrame" title="[인사]산업통상자원부 ">[인사]산업통상자원부 </a><span class="date">14:04</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092914031254103" target="mainFrame" title='식약처 "마스크 수급 안정적"…시각·청각장애인 마스크 개발 지원(상보) '>식약처 "마스크 수급 안정적"…시각·청각장애인 마스</a><span class="date">14:01</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092821365570212" target="mainFrame" title="산업차관, 추석 전 상암 수소충전소 안전점검">산업차관, 추석 전 상암 수소충전소 안전점검</a><span class="date">14:00</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092822111508623" target="mainFrame" title="의료·교육·유통 등 '비대면 경제표준화'에 2025년까지 370억 투입">의료·교육·유통 등 '비대면 경제표준화'에 2025년까</a><span class="date">14:00</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913581045674" target="mainFrame" title="경실련, 김홍걸·조수진 허위 재산신고 의혹 고발">경실련, 김홍걸·조수진 허위 재산신고 의혹 고발</a><span class="date">13:55</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913550234507" target="mainFrame" title='이재명 "불체포특권 성역 안될 말…김태년 대표 결단 응원"'>이재명 "불체포특권 성역 안될 말…김태년 대표 결단 </a><span class="date">13:53</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913524324459" target="mainFrame" title="[포토] 심상정, 공직자 이해충돌방지 법안 발의">[포토] 심상정, 공직자 이해충돌방지 법안 발의</a><span class="date">13:50</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913482005674" target="mainFrame" title="[뉴웨이브] 코로나19가 몰고 온 자전거 전성시대">[뉴웨이브] 코로나19가 몰고 온 자전거 전성시대</a><span class="date">13:46</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913480402169" target="mainFrame" title="여수시, 안전하고 편안한 추석명절을 위한 ‘종합대책’ 추진">여수시, 안전하고 편안한 추석명절을 위한 ‘종합대책</a><span class="date">13:46</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913460696511" target="mainFrame" title="코스피, 기관 '나홀로' 매수...2330선 등락">코스피, 기관 '나홀로' 매수...2330선 등락</a><span class="date">13:43</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913451390639" target="mainFrame" title="IBK나라사랑카드, 국군의 날 특별할인 이벤트">IBK나라사랑카드, 국군의 날 특별할인 이벤트</a><span class="date">13:43</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913424483830" target="mainFrame" title='[속보] "청각장애인 수어용 투명마스크 개발…신속 허가"  '>[속보] "청각장애인 수어용 투명마스크 개발…신속 허</a><span class="date">13:40</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913423480410" target="mainFrame" title="검찰, '정치자금법 위반 의혹' 추미애 수사 착수">검찰, '정치자금법 위반 의혹' 추미애 수사 착수</a><span class="date">13:40</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913423077575" target="mainFrame" title="기업은행 '가을엔 비대면 예금' 이벤트…총 600명 모바일 쿠폰">기업은행 '가을엔 비대면 예금' 이벤트…총 600명 모</a><span class="date">13:40</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913402769556" target="mainFrame" title="[포토] 남대문시장 찾은 이낙연 대표">[포토] 남대문시장 찾은 이낙연 대표</a><span class="date">13:38</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913402566652" target="mainFrame" title="[포토] 추석 연휴 앞두고 남대문 시장 찾은 이낙연">[포토] 추석 연휴 앞두고 남대문 시장 찾은 이낙연</a><span class="date">13:38</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913401863591" target="mainFrame" title="[포토] 재래시장 상인들 만나는 이낙연 대표">[포토] 재래시장 상인들 만나는 이낙연 대표</a><span class="date">13:38</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913401460579" target="mainFrame" title="[포토] 활짝 웃는 이낙연 대표">[포토] 활짝 웃는 이낙연 대표</a><span class="date">13:38</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913400257336" target="mainFrame" title='[속보] "시각장애인용 마스크 포장지 개발중…10월까지 출시" '>[속보] "시각장애인용 마스크 포장지 개발중…10월까</a><span class="date">13:37</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913392254753" target="mainFrame" title="여수시, 10월 직원 정례회 ‘추석절 이동멈춤 동참’ 호소">여수시, 10월 직원 정례회 ‘추석절 이동멈춤 동참’ </a><span class="date">13:37</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913375449931" target="mainFrame" title='[속보] "휴게소 매장 내 음식섭취 불가… 간식 준비 권장" '><font color="RED">[속보] "휴게소 매장 내 음식섭취 불가… 간식 준비 </font></a><span class="date">13:35</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913364442524" target="mainFrame" title="GS 4세 허서홍 전무, 에너지에서 지주사로 옮겨 ">GS 4세 허서홍 전무, 에너지에서 지주사로 옮겨 </a><span class="date">13:34</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913362139696" target="mainFrame" title='[속보] "휴게소 이용시 도로전광표지 혼잡도 정보 먼저 확인"  '>[속보] "휴게소 이용시 도로전광표지 혼잡도 정보 먼</a><span class="date">13:34</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913352032482" target="mainFrame" title="광양시, 새내기 공직자 대상 인구교육 실시">광양시, 새내기 공직자 대상 인구교육 실시</a><span class="date">13:33</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913335326858" target="mainFrame" title="캠코, 국유부동산 77건 공개 대부 및 매각">캠코, 국유부동산 77건 공개 대부 및 매각</a><span class="date">13:31</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913334023936" target="mainFrame" title="아주IB투자, 검색 상위 랭킹... 주가 22.96%">아주IB투자, 검색 상위 랭킹... 주가 22.96%</a><span class="date">13:31</span><br/></li>
+</ul>
+<p class="line"></p>
+<ul>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913333120738" target="mainFrame" title="메디콕스, 검색 상위 랭킹... 주가 1.19%">메디콕스, 검색 상위 랭킹... 주가 1.19%</a><span class="date">13:31</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913332415654" target="mainFrame" title="모트렉스, 투자자 검색 급증... 주가 7130원(11.58%)">모트렉스, 투자자 검색 급증... 주가 7130원(11.58%)</a><span class="date">13:31</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913331512305" target="mainFrame" title="한일진공, 개인 투자자 관심 집중... 주가 -3.57%...">한일진공, 개인 투자자 관심 집중... 주가 -3.57%...</a><span class="date">13:31</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913330709035" target="mainFrame" title="피씨엘, 검색 상위 랭킹... 주가 -1.6%">피씨엘, 검색 상위 랭킹... 주가 -1.6%</a><span class="date">13:30</span><br/></li>
+<li><a href="/realtime/sokbo_view.htm?idxno=2020092913325806328" target="mainFrame" title="콤텍시스템, 검색 상위 랭킹... 주가 -3.36%">콤텍시스템, 검색 상위 랭킹... 주가 -3.36%</a><span class="date">13:30</span><br/></li>
+</ul>
+<p class="line"></p>
+<div class="paginate">
+<strong>1</strong><a href="javascript:go(2, '')">2</a><a href="javascript:go(3, '')">3</a><a href="javascript:go(4, '')">4</a><a href="javascript:go(5, '')">5</a><a href="javascript:go(6, '')">6</a><a href="javascript:go(7, '')">7</a><a href="javascript:go(8, '')">8</a><a href="javascript:go(9, '')">9</a><a href="javascript:go(10, '')">10</a> <a class="next" href="javascript:go( 11, '' )"><img border="0" src="https://cwstatic.asiae.co.kr/asiae_2009/common/btn_pg_next.gif"/></a>
+</div></div>
+</form>
+</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+parent.document.getElementById("mainFrame").src='/realtime/sokbo_view.htm?idxno=2020092915420628215';
+</script>
