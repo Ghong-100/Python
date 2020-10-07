@@ -47,8 +47,49 @@ class LinkedList:
             printnode = printnode.next
 
 
-    def remove(self, index):
-        pass
+    def removeByIndex(self, index):
+        if self.size < 1 or index+1 > self.size:
+            return
+        count = 0
+        node = None
+        while count < index:
+            if node == None:
+                node = self.head
+            else:
+                node = node.next
+            count += 1
+        if node == None:
+            self.head = self.head.next
+        elif node.next == self.tail:
+            node.next = None
+        else:
+            node.next = node.next.next
+        self.size -= 1
+        
+    def removeByData(self, data):
+        node = None
+        while True:
+            if node == None:                # 첨 시작할때
+                if self.head.data == data:      # 대가리가 대상이면
+                    self.head = self.head.next
+                    self.size -= 1
+                    return
+                else:                           # 아니면 진행향지
+                    node = self.head
+            elif node.next == None:         # 마지막까지 못찾았어
+                return
+            elif node.next.data == data:    # 찾은경우
+                break
+            else:                           # 다음거 검색
+                node = node.next
+
+        if node.next == self.tail:          # 마지막이 대상이면
+            node.next = None
+            self.tail = node
+        else:                               # 그 외엔 연결해줘야함
+            node.next = node.next.next
+        self.size -= 1
+        
     def printAll(self):
         curNode = self.head
         index = 0
@@ -66,4 +107,23 @@ for i in range(1,6):
     mylist.add(i)
 
 mylist.add(100, 2)
+mylist.printAll()
+print("-------제거--------")
+mylist.removeByData(6)
+print("리스트 사이즈 : {0}".format(mylist.size))
+mylist.printAll()
+mylist.removeByData(1)
+print("리스트 사이즈 : {0}".format(mylist.size))
+mylist.printAll()
+mylist.removeByData(6)
+print("리스트 사이즈 : {0}".format(mylist.size))
+mylist.printAll()
+mylist.removeByIndex(5)
+print("리스트 사이즈 : {0}".format(mylist.size))
+mylist.printAll()
+# mylist.removeByIndex(5)
+# print("리스트 사이즈 : {0}".format(mylist.size))
+# mylist.printAll()
+mylist.removeByIndex(0)
+print("리스트 사이즈 : {0}".format(mylist.size))
 mylist.printAll()
