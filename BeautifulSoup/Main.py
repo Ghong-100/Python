@@ -1,11 +1,12 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import os, re
-
+from PyQt5.QtWidgets import *
+from PyQt5 import uic
 import sys, inspect
 sys.path.append('BeautifulSoup\\site')
 
-repattern = r"^(http(s)?:\/\/)(www\.|m\.)?([a-z0-9]+)(\.*)"
+
 
 class news:
     def __init__(self):
@@ -17,6 +18,7 @@ class news:
 
 class site:
     def __init__(self, url):
+        repattern = r"^(http(s)?:\/\/)(www\.|m\.)?([a-z0-9]+)(\.*)"
         self.m_url = url
         res = re.match(repattern, url)
         self.domain = res.group(4)
@@ -52,6 +54,23 @@ with open("D:\\30_STUDY\\python\\BeautifulSoup\\site\\sites.txt", "r", encoding=
         Site_list.append(newSite)
         for news in newSite.scrapAllNews():
             News_list.append(news)
+
+
+## Form
+form_class = uic.loadUiType("D:\\30_STUDY\\python\\BeautifulSoup\\Ghong.ui")[0]
+class WindowClass(QMainWindow, form_class):
+# Default Function
+    def __init__(self):
+        #  default
+        super().__init__()
+        self.setupUi(self)
+
+## Main 
+app = QApplication(sys.argv)
+mainWindow = WindowClass()
+mainWindow.show()
+print('init')
+app.exec_()
 
 
 print("end")
