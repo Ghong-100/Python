@@ -46,6 +46,26 @@ class LinkedList:
             print(f"{i+1}번째 값 {printnode.data}")
             printnode = printnode.next
 
+    def insert(self, index, node):
+        # 인덱스가 사이즈보다 크면 불가능, 0보다 작으면 불가능
+        if index > self.size or index < 0:
+            return
+        if index == 0:
+            if self.head == None:
+                self.head = node
+            else:
+                node.next, self.head = self.head, node
+        else:
+            preNode = self.head
+            cnt = 1
+            while cnt < index:
+                preNode = preNode.next
+                cnt += 1
+            if preNode.next == None:
+                preNode.next = node
+            else:
+                node.next, preNode.next = preNode.next, node
+        self.size += 1
 
     def removeByIndex(self, index):
         if self.size < 1 or index+1 > self.size:
@@ -100,30 +120,38 @@ class LinkedList:
 
     def clear(self):
         pass
-    
-mylist = LinkedList()
 
-for i in range(1,6):
-    mylist.add(i)
 
-mylist.add(100, 2)
-mylist.printAll()
-print("-------제거--------")
-mylist.removeByData(6)
-print("리스트 사이즈 : {0}".format(mylist.size))
-mylist.printAll()
-mylist.removeByData(1)
-print("리스트 사이즈 : {0}".format(mylist.size))
-mylist.printAll()
-mylist.removeByData(6)
-print("리스트 사이즈 : {0}".format(mylist.size))
-mylist.printAll()
-mylist.removeByIndex(5)
-print("리스트 사이즈 : {0}".format(mylist.size))
-mylist.printAll()
+
+# mylist = LinkedList()
+
+# for i in range(1,6):
+#     mylist.add(i)
+
+# mylist.add(100, 2)
+# mylist.printAll()
+# print("-------제거--------")
+# mylist.removeByData(6)
+# print("리스트 사이즈 : {0}".format(mylist.size))
+# mylist.printAll()
+# mylist.removeByData(1)
+# print("리스트 사이즈 : {0}".format(mylist.size))
+# mylist.printAll()
+# mylist.removeByData(6)
+# print("리스트 사이즈 : {0}".format(mylist.size))
+# mylist.printAll()
 # mylist.removeByIndex(5)
 # print("리스트 사이즈 : {0}".format(mylist.size))
 # mylist.printAll()
-mylist.removeByIndex(0)
-print("리스트 사이즈 : {0}".format(mylist.size))
-mylist.printAll()
+# # mylist.removeByIndex(5)
+# # print("리스트 사이즈 : {0}".format(mylist.size))
+# # mylist.printAll()
+# mylist.removeByIndex(0)
+# print("리스트 사이즈 : {0}".format(mylist.size))
+# mylist.printAll()
+# mylist.insert(0, Node(9))
+# print("리스트 사이즈 : {0}".format(mylist.size))
+# mylist.printAll()
+# mylist.insert(1, Node(99))
+# print("리스트 사이즈 : {0}".format(mylist.size))
+# mylist.printAll()
