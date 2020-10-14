@@ -68,9 +68,9 @@ def scrap_all(url):
         skip = False
         for line in findData:
             index = index + 1 if index + 1 <= 3 else 1
-            if index == 1:  # 시간 처리
-                newsTime = str(line.get_text())
-                newsTime = datetime.now().strftime('%Y') + '-' + newsTime
+            if index == 1:  # 시간 처리. 뉴스 화면에 월,일이 표시되니까 걍 시간만 뽑자
+                newsTime = str(line.get_text())[-5:]
+                #newsTime = datetime.now().strftime('%Y') + '-' + newsTime
                 if newsTime != None:
                     newNews = news()
                     newNews.m_time = newsTime

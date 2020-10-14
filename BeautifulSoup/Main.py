@@ -1,6 +1,7 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import os, re
+import datetime, time
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 import sys, inspect
@@ -37,24 +38,6 @@ class site:
 ## Main
 #############################################################################################
 
-## Read files
-Site_list = []
-News_list = []
-with open("D:\\30_STUDY\\python\\BeautifulSoup\\site\\sites.txt", "r", encoding="utf8") as data:    
-    '''
-    while True:
-        line = data.readline()
-        if not line:
-            break
-        site_list.append(site(line))
-    '''
-    line = data.readline()
-    if line != None: 
-        newSite = site(line)
-        Site_list.append(newSite)
-        for news in newSite.scrapAllNews():
-            News_list.append(news)
-
 
 ## Form
 form_class = uic.loadUiType("D:\\30_STUDY\\python\\BeautifulSoup\\Ghong.ui")[0]
@@ -64,12 +47,54 @@ class WindowClass(QMainWindow, form_class):
         #  default
         super().__init__()
         self.setupUi(self)
+        self.setWindowTitle("근홍인 부자가될꺼야")
+        self.timeLabel.setText(datetime.datetime.today().strftime('%m월%d일  %H:%M'))
+        #self.newListTest()
+        self.newsScrapInit()
+        self.newListInit()
+
+# News Function
+    def newsScrapInit(self):
+        ## Read files
+        self.Site_list = []
+        self.News_list = []
+        with open("D:\\30_STUDY\\python\\BeautifulSoup\\site\\sites.txt", "r", encoding="utf8") as data:    
+            '''
+            while True:
+                line = data.readline()
+                if not line:
+                    break
+                site_list.append(site(line))
+            '''
+            line = data.readline()
+            if line != None: 
+                newSite = site(line)
+                self.Site_list.append(newSite)
+                for news in newSite.scrapAllNews():
+                    self.News_list.append(news)
+
+    def newListInit(self):
+        self.newsListWidget.clear()
+        for news in self.News_list:
+            item = QListWidgetItem()
+            item.setText(f"{news.m_time}  {news.m_title}")
+            self.newsListWidget.addItem(item)
+
+    def newListTest(self):
+        # self.newsListWidget.clear()
+        #for i in range(10):
+        item = QListWidgetItem()
+        item.setText(f"앙 번째.")
+        self.newsListWidget.addItem(item)
+        print(type(self.newsListWidget))
+        #self.newsListWidget.additem("dd")
 
 ## Main 
 app = QApplication(sys.argv)
 mainWindow = WindowClass()
 mainWindow.show()
 print('init')
+print(datetime.datetime.today().strftime('%m월 %d일.  %H:%M'))
 app.exec_()
 
 
