@@ -26,7 +26,10 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -39,10 +42,7 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <item row="0" column="0">
+    <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="tabPosition">
        <enum>QTabWidget::West</enum>
@@ -85,11 +85,56 @@
        <attribute name="title">
         <string/>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="timeLabel">
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="newsListWidget">
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <item>
+           <property name="text">
+            <string>12:34 테스트1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>12:34 테스트2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>13:57 테스트3</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="stock">
        <attribute name="icon">
         <iconset>
-         <normaloff>res/qqq.gif</normaloff>res/qqq.gif</iconset>
+         <normaloff>res/stock.gif</normaloff>res/stock.gif</iconset>
        </attribute>
        <attribute name="title">
         <string/>
