@@ -9,3 +9,4 @@ https://www.mk.co.kr/news/all/
 https://moneys.mt.co.kr/news/mwList.php?code=w0000&code2=w0100
 https://newsis.com/realnews/
 http://m.newspim.com/lists?category_cd=1
+https://news.mt.co.kr/newsList.html?comd=7&pDepth=stock&pDepth1=sNews&pDepth2=Ftotal
