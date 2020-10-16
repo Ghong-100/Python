@@ -24,13 +24,14 @@ class site:
         repattern = r"^(http(s)?:\/\/)(www\.|m\.)?([a-z0-9]+)(\.*)"
         self.m_url = url
         res = re.match(repattern, url)
-        self.domain = res.group(4)
+        self.m_domain = res.group(4)
         # print(self.m_url, self.domain)
-        mod_name = str(self.domain)# + ".py"
+        mod_name = str(self.m_domain)# + ".py"
         # print(mod_name)
         self.m_module = __import__('%s' %(mod_name), fromlist=[mod_name])
         self.scrap = getattr(self.m_module, 'scrap')
         self.scrap_all = getattr(self.m_module, 'scrap_all')
+        self.m_lastTime = datetime.datetime.today().strftime('%H:%M')
         # self.scrap_all(url)
     def scrapAllNews(self):
         return self.scrap_all(self.m_url)
@@ -98,11 +99,16 @@ class WindowClass(QMainWindow, form_class):
                     self.News_list.append(news)
 
     def newsScrap(self):
+        currtime = datetime.datetime.today()
+        self.timeLabel.setText(currtime.strftime('%m월%d일  %H:%M'))
         for site in self.Site_list:
-            for news in site.scrap(site.m_url):
+            print(f"{site.m_domain} Start scrap!")
+            site.m_lastTime = currtime.strftime('%H:%M')
+            for news in site.scrap(site.m_url, site.m_lastTime):
                 item = QListWidgetItem()
                 item.setText(f"{news.m_time}  {news.m_title}")
                 self.newsListWidget.insertItem(0, item)
+            print(f"{site.m_domain} End scrap!")
 
     def newListInit(self):
         self.newsListWidget.clear()

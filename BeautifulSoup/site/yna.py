@@ -14,24 +14,27 @@ class news:
 def check():
     print(__name__)
 
-def scrap(url):
+def scrap(url, lastTime):
     html = urlopen(url)
     bsObject = BeautifulSoup(html, "html.parser")
 
     newsList = []
-    currTime = datetime.now().strftime('%Y-%m-%d %H:%M')
+    currTime = datetime.now().strftime('%H:%M')
 
     bsFind = bsObject.find('section')#, attrs={'class':'tit-news'})
     findData = bsFind.find_all(True, {"class": ["txt-time","tit-wrap","tit-news"]})
-    count = 0
+    count = 0   # 필요한 데이터가 3줄로 출력된다.
     index = 0   # 1 = 시간, 2 = url, 3 = 뉴스제목
+                # 시간 확인해서 필요없으면 2번째, 3번째 줄도 스킵해줘야한다.
     skip = False
+    print(f"{currTime} start parsing!!")
     for line in findData:
         index = index + 1 if index + 1 <= 3 else 1
         if index == 1:  # 시간 처리
             newsTime = str(line.get_text())[-5:]
             #newsTime = datetime.now().strftime('%Y') + '-' + newsTime
-            if newsTime != None and newsTime == currTime:
+            print(newsTime, end=' ')
+            if newsTime != None and newsTime >= lastTime:
                 newNews = news()
                 newNews.m_time = newsTime
                 newsList.append(newNews)
@@ -51,6 +54,7 @@ def scrap(url):
             if newsTitle != None:
                 newsList[count-1].m_title = newsTitle
                 newsList[count-1].print()
+    print(f"\n{currTime} end parsing!!", end='\n\n')
     return newsList
 
 def scrap_all(url):
