@@ -19,6 +19,11 @@ class WindowClass(QMainWindow, form_class):
         self.opened = False
         self.opened_file_path = '제목 없음'
 
+        self.action_Undo.triggered.connect(self.undoFunction)
+        self.action_Copy.triggered.connect(self.copyFunction)
+        self.action_Cut.triggered.connect(self.cutFunction)
+        self.action_Paste.triggered.connect(self.pasteFunction)
+
 ## Menu Functions
     def save_file(self, filename):
         data = self.textEdit.toPlainText()
@@ -63,6 +68,8 @@ class WindowClass(QMainWindow, form_class):
 
     def closeEvent(self, event):    # close할때 호출되는 기본 이벤트임. 위에 action_exit에서 close(얘도 상속받은듯)를 호출했고 그게 호출될때 이 이벤트가 호출됨.
         ret = self.save_changed_data()
+        if ret == 1:
+            self.save_file(self.opened_file_path)
         if ret == 2:
             event.ignore()
         print("close test!")
@@ -74,8 +81,24 @@ class WindowClass(QMainWindow, form_class):
         msgBox.addButton('저장 안 함', QMessageBox.NoRole)  # 1번
         msgBox.addButton('취소', QMessageBox.RejectRole)    # 2번
         ret = msgBox.exec_()
-        if ret == 2:
-            return ret
+        return ret
+
+    def undoFunction(self):
+        self.plainTextEdit.undo()
+        pass
+
+    def copyFunction(self):
+        self.plainTextEdit.copy()
+        pass
+
+    def cutFunction(self):
+        self.plainTextEdit.cut()
+        pass
+
+    def pasteFunction(self):
+        self.plainTextEdit.paste()
+        pass
+
 
 ## Other Functions
     def func(self):
