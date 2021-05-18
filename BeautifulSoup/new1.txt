@@ -1,0 +1,5 @@
+최신 기사 받아오는 url은 이거임
+https://rest.news1.kr/w/ajax/extcontent?type=breaking_news
+
+결과는 유니코드로 나옴
+기사 주소는 https://www.news1.kr/articles/?4303870

@@ -1,3 +1,13 @@
+##################################
+#   Autor : Ghong Kim.
+#   mail : ghd644@gmail.com
+#
+#  Version
+#   python          3.8.0
+#   BeautifulSoup   4.9.1
+#   PyQt5           5.15.0
+#################################
+
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import os, re
@@ -8,8 +18,7 @@ from PyQt5 import uic
 import time
 import sys, inspect
 sys.path.append('BeautifulSoup\\site')
-
-
+sys.path.append('D:\\30_STUDY\\Python\\BeautifulSoup\\site')
 
 class news:
     def __init__(self):
@@ -20,8 +29,8 @@ class news:
         print(f"Time : {self.m_time}\nTitle : {self.m_title}\nURL : {self.m_url}")
 
 class site:
-    def __init__(self, url):
-        repattern = r"^(http(s)?:\/\/)(www\.|m\.)?([a-z0-9]+)(\.*)"
+    def __init__(self, url):                    # rest는 new1이 rest로 시작해서임
+        repattern = r"^(http(s)?:\/\/)(www\.|m\.|rest\.)?([a-z0-9]+)(\.*)"
         self.m_url = url
         res = re.match(repattern, url)
         self.m_domain = res.group(4)
@@ -85,12 +94,14 @@ class WindowClass(QMainWindow, form_class):
         self.News_list = []
         with open("D:\\30_STUDY\\python\\BeautifulSoup\\site\\sites.txt", "r", encoding="utf8") as data:    
             '''
+            # site.txt 에 있는 목록 전부 긁어오는건데 아직 작업이 안끝났엉.
             while True:
                 line = data.readline()
                 if not line:
                     break
                 site_list.append(site(line))
             '''
+            #for i in range(0,2):
             line = data.readline()
             if line != None: 
                 newSite = site(line)
@@ -103,12 +114,12 @@ class WindowClass(QMainWindow, form_class):
         self.timeLabel.setText(currtime.strftime('%m월%d일  %H:%M'))
         for site in self.Site_list:
             print(f"{site.m_domain} Start scrap!")
-            site.m_lastTime = currtime.strftime('%H:%M')
             for news in site.scrap(site.m_url, site.m_lastTime):
                 item = QListWidgetItem()
                 item.setText(f"{news.m_time}  {news.m_title}")
                 self.newsListWidget.insertItem(0, item)
-            print(f"{site.m_domain} End scrap!")
+                site.m_lastTime = news.m_time
+            print(f"{site.m_domain} End scrap! time : {site.m_lastTime}")
 
     def newListInit(self):
         self.newsListWidget.clear()

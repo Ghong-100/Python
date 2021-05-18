@@ -1,0 +1,9 @@
+pyinstaller-4.2.tar.gz
+upx-3.96-win64.zip
+
+MGame/
+MgameWeb/
+TBLViewer/
+pyinstaller-4.2/
+
+*.pyc

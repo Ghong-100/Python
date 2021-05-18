@@ -1,16 +1,17 @@
 from urllib.request import *
 from bs4 import BeautifulSoup
 import re
-# html = urlopen("https://www.asiae.co.kr/realtime/sokbo_left.htm")
-# bsObject = BeautifulSoup(html, "html.parser")
+html = urlopen("https://www.asiae.co.kr/realtime/sokbo_left.htm")
+bsObject = BeautifulSoup(html, "html.parser")
+filename = "BeautifulSoup\\Site\\"
 
-# with open("BeautifulSoup\\Site\\aaa","w", encoding="utf8") as output:
-# #    bsFind = bsObject.find('strong', {'class':'tit-news'}).get_text()
-# #    output.write(str(bsFind))
-#         output.write(str(bsObject))
+with open("BeautifulSoup\\Site\\aaa","w", encoding="utf8") as output:
+#    bsFind = bsObject.find('strong', {'class':'tit-news'}).get_text()
+#    output.write(str(bsFind))
+        output.write(str(bsObject))
+#print(bsObject)
 
-# #print(bsObject)
-
+'''
 url = 'http://m.newspim.com/lists?category_cd=1'
 repattern = r"^(http(s)?:\/\/)(www\.|m\.)?([a-z0-9]+)(\.*)"
 #repattern = r"^(http[s]:\/\/)(www.|m.)(*)\.*"
@@ -24,3 +25,13 @@ if time1 > time2:
     print(f"{time1} 이 {time2} 보다 큼")
 else:
     print(f"{time1} 이 {time2} 보다 작음")
+
+def test1():
+    res = [1,2,3]
+    return res, 234
+
+print(test1())
+
+for aa in test1()[0]:
+    print(aa)
+'''

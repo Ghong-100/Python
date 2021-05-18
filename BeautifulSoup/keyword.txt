@@ -12,3 +12,18 @@
 수주
 독점
 취득
+축구
+투입
+출범
+
+
+int main
+{
+    int i;
+    int j;
+
+    cout << --i;
+    for(int z=0; z < j; ++z)
+        cout << j++ << ' ';
+    cout << j;
+}
