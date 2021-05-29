@@ -1,8 +1,8 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import time
 from datetime import datetime
 import json
+import time
 
 lastnewslist = []
 
@@ -21,8 +21,58 @@ class news:
 def check():
     print(__name__)
 
+
+# --------------------------------------------
+# Main Function ------------------------------
 def scrap(url, lastTime):
+    global lastnewslist
     newsList = []
+    currTime = datetime.now().strftime('%H:%M')
+    
+    html = urlopen(url)
+    bsObject = BeautifulSoup(html, "html.parser")
+    bsFind = json.loads( str(bsObject), strict=False )
+
+    print(f"[news1] {currTime} start parsing!!")
+    for findData in bsFind["data"]:
+        if findData["title"] == None:
+            break
+        newNews = news(findData["title"], str(time.strftime('%H:%M', time.localtime(time.time() - int(str(findData["pubdate1"]).replace("분전", ""))*60) )), "https://www.news1.kr/articles/?" + str(findData["id"]) )
+        print(f"[news1] {currTime} new News : {newNews.m_title}")
+
+        # 지난 뉴스보다 오래된 내용이면 끝
+        if len(lastnewslist) > 0 and newNews.m_time < lastnewslist[0].m_time:
+            break
+        
+        # 지난 뉴스랑 같은 시간대인데 새로운 내용일수도 있음. 이건 비교해줘야함.
+        isNew = True
+        for ln in lastnewslist:
+            if ln.m_title == newNews.m_title:
+                isNew = False
+                break
+        
+        # 새로운 뉴스면 추가해주고
+        if isNew == True:
+            newsList.append(newNews)
+            newNews.print()
+        
+    # 지난 뉴스 시간 체크해서 비워주고
+    if len(newsList) > 0:
+        newtime = newsList[0].m_time
+        if lastnewslist[0].m_time < newtime:
+            lastnewslist.clear()
+
+    # 새걸로 채워넣고
+    for n in newsList:
+        if n.m_time == newtime:
+            lastnewslist.append(n)
+        else:
+            break
+    
+    print(f"\n[yna] {currTime} end parsing!!", end='\n\n')
+    for ln in lastnewslist:
+        print(f"[news1] Last New : [{ln.m_time}] {ln.m_title}")
+
     return newsList
 
 def scrap_all(url):
@@ -38,25 +88,25 @@ def scrap_all(url):
     # print(findData["title"])
     # print(findData["pubdate"][11:16])
 
-    bsFind = json.loads( str(bsObject) )
+    bsFind = json.loads( str(bsObject), strict=False )
     for findData in bsFind["data"]:
         if findData["title"] == None:
             break
-        newNews = news(findData["title"], "https://www.news1.kr/articles/?" + str(findData["article_id"]), findData["pubdate"][11:16])
+        newNews = news(findData["title"], str(time.strftime('%H:%M', time.localtime(time.time() - int(str(findData["pubdate1"]).replace("분전", ""))*60) )), "https://www.news1.kr/articles/?" + str(findData["id"]) )
         newsList.append(newNews)
         count += 1
 
     # 지난 뉴스 리스트 올려주기
     if len(newsList) > 0:
-        time = newsList[0].m_time
+        lasttime = newsList[0].m_time
         for n in newsList:
-            if n.m_time == time:
+            if n.m_time == lasttime:
                 lastnewslist.append(n)
             else:
                 break
 
     for ln in lastnewslist:
-        print("Last New : " + ln.m_title)
+        print("[news1] Last New : " + ln.m_title)
 
     return newsList
 

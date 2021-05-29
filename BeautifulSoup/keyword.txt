@@ -15,15 +15,6 @@
 축구
 투입
 출범
-
-
-int main
-{
-    int i;
-    int j;
-
-    cout << --i;
-    for(int z=0; z < j; ++z)
-        cout << j++ << ' ';
-    cout << j;
-}
+허가
+수출
+출시

@@ -10,13 +10,17 @@
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import os, re
-import datetime, time
+
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from PyQt5.QtGui import QColor
 from PyQt5 import uic
-import time
-import sys, inspect
+
+import telegram
+
+import os, re, sys
+import datetime, time, inspect, webbrowser
+
 sys.path.append('BeautifulSoup\\site')
 sys.path.append('D:\\30_STUDY\\Python\\BeautifulSoup\\site')
 
@@ -78,6 +82,8 @@ class WindowClass(QMainWindow, form_class):
         self.timeLabel.setText(datetime.datetime.today().strftime('%m월%d일  %H:%M'))
         #self.m_tmp = 0
         #self.newListTest()
+        self.teleBotInit()
+        self.loadKeywords()
         self.newsScrapInit()
         self.newListInit()
 
@@ -99,15 +105,19 @@ class WindowClass(QMainWindow, form_class):
                 line = data.readline()
                 if not line:
                     break
-                site_list.append(site(line))
+                if line[0] != '#':
+                    site_list.append(site(line))
             '''
-            #for i in range(0,2):
-            line = data.readline()
-            if line != None: 
-                newSite = site(line)
-                self.Site_list.append(newSite)
-                for news in newSite.scrapAllNews():
+            for i in range(0,2):
+                line = data.readline()
+                if line != None and line[0] != '#': 
+                    newSite = site(line)
+                    self.Site_list.append(newSite)
+
+            for s in self.Site_list:
+                for news in s.scrapAllNews():
                     self.News_list.append(news)
+        self.News_list.sort(key = lambda news : news.m_time, reverse = True)
 
     def newsScrap(self):
         currtime = datetime.datetime.today()
@@ -117,6 +127,10 @@ class WindowClass(QMainWindow, form_class):
             for news in site.scrap(site.m_url, site.m_lastTime):
                 item = QListWidgetItem()
                 item.setText(f"{news.m_time}  {news.m_title}")
+                item.setToolTip(news.m_url)
+                if any(keyword in news.m_title for keyword in self.keywords):
+                    item.setForeground( QColor('#ff0000') )
+                    self.SendBotMsg(news)
                 self.newsListWidget.insertItem(0, item)
                 site.m_lastTime = news.m_time
             print(f"{site.m_domain} End scrap! time : {site.m_lastTime}")
@@ -126,7 +140,21 @@ class WindowClass(QMainWindow, form_class):
         for news in self.News_list:
             item = QListWidgetItem()
             item.setText(f"{news.m_time}  {news.m_title}")
+            item.setToolTip(news.m_url)
+            if any(keyword in news.m_title for keyword in self.keywords):
+                item.setForeground( QColor('#ff0000') )
+                self.SendBotMsg(news)
             self.newsListWidget.addItem(item)
+
+    def loadKeywords(self):
+        self.keywords = []
+        with open("keyword.txt", "r", encoding="utf8") as data:
+            while True:
+                line = data.readline().rstrip()
+                if not line:
+                    break
+                self.keywords.append(line)
+        print(self.keywords)
 
     def newListTest(self):
         #self.newsListWidget.clear()
@@ -136,6 +164,17 @@ class WindowClass(QMainWindow, form_class):
         item.setText(f"{self.m_tmp} 번째.")
         self.newsListWidget.insertItem(0,item)
         #self.newsListWidget.additem("dd")
+
+    def teleBotInit(self):
+        telgm_token = "1732041372:AAFT6Mq2o0QGfcKR-RaI2YKswT6CMW-rm94"
+        self.bot = telegram.Bot(token = telgm_token)
+    
+    def SendBotMsg(self, news):
+        msg = f"[{news.m_time}] {news.m_title} \n{news.m_url}"
+        self.bot.sendMessage(chat_id='807345369', text=msg)
+
+    def slot_OpenURL(self, item):
+        webbrowser.open_new(item.toolTip())
 
 ## Main 
 app = QApplication(sys.argv)

@@ -16,6 +16,9 @@ class news:
 def check():
     print(__name__)
 
+
+# --------------------------------------------
+# Main Function ------------------------------
 def scrap(url, lastTime):
     global lastnewslist
     html = urlopen(url)
@@ -30,13 +33,13 @@ def scrap(url, lastTime):
     index = 0   # 1 = 시간, 2 = url, 3 = 뉴스제목
                 # 시간 확인해서 필요없으면 2번째, 3번째 줄도 스킵해줘야한다.
     skip = False
-    print(f"{currTime} start parsing!!")
+    print(f"[yna] {currTime} start parsing!!")
     for line in findData:
         index = index + 1 if index + 1 <= 3 else 1
         if index == 1:  # 시간 처리
             newsTime = str(line.get_text())[-5:]
             #newsTime = datetime.now().strftime('%Y') + '-' + newsTime
-            print(newsTime, end=' ')
+            #print(newsTime, end=' ')
             if newsTime != None and newsTime >= lastTime:
                 newNews = news()
                 newNews.m_time = newsTime
@@ -58,7 +61,8 @@ def scrap(url, lastTime):
             newsTitle = str(line.get_text())
             if newsTitle != None:
                 newsList[count-1].m_title = newsTitle
-                print('a1')
+
+                print(f"[yna] {currTime} new News : {newsTitle}")
                     # 중복 체크용 최신 뉴스 정보 보관
                     # 지난 사이클 최신 뉴스랑 비교해서 넘길지 말지 정해야함.
                     # 순서가 최신 -> 오래된거 순으로 나옴.
@@ -69,33 +73,27 @@ def scrap(url, lastTime):
                 isNew = True
                 for ln in lastnewslist:
                     if ln.m_title == newsTitle:
-                        print('a2')
                         del newsList[count-1]
                         count = count-1
                         isNew = False
                         break
-                if isNew:
-                    print('a4')
-                    newsList[count-1].print()
+                #if isNew:
+                #    newsList[count-1].print()
 
     if len(newsList) > 0:
-        print('a')
         time = newsList[0].m_time
         if lastnewslist[0].m_time < time:
-            print('b')
             lastnewslist.clear()
 
         for n in newsList:
             if n.m_time == time:
-                print('c')
                 lastnewslist.append(n)
             else:
-                print('d')
                 break
 
-    print(f"\n{currTime} end parsing!!", end='\n\n')
+    print(f"\n[yna] {currTime} end parsing!!", end='\n\n')
     for ln in lastnewslist:
-        print(f"Last New : [{ln.m_time}] {ln.m_title}")
+        print(f"[yna] Last New : [{ln.m_time}] {ln.m_title}")
 
     return reversed(newsList)
 
@@ -145,7 +143,7 @@ def scrap_all(url):
                 break
 
     for ln in lastnewslist:
-        print("Last New : " + ln.m_title)
+        print("[yna] Last New : " + ln.m_title)
 
     return newsList
 
